@@ -5,4 +5,3 @@ export(getComments)
 export(getWords)
 export(negWordCloud)
 export(posWordCloud)
-

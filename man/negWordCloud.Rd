@@ -2,7 +2,9 @@
 % Please edit documentation in R/functions.R
 \name{negWordCloud}
 \alias{negWordCloud}
-\title{Retrieve a vector of all the words in all the comments of the thread passed to getWords.}
+\title{Retrieve a wordcloud of the most used negative words in all the comments of the thread passed to negWordCloud
+Ensure you install tm.lexicon.GeneralInquirer for this by running:
+install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")}
 \usage{
 negWordCloud(words)
 }
@@ -13,7 +15,9 @@ negWordCloud(words)
 A pretty wordcloud
 }
 \description{
-Retrieve a vector of all the words in all the comments of the thread passed to getWords.
+Retrieve a wordcloud of the most used negative words in all the comments of the thread passed to negWordCloud
+Ensure you install tm.lexicon.GeneralInquirer for this by running:
+install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
 }
 \examples{
 getWords(words_vector) 

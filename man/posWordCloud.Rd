@@ -2,7 +2,9 @@
 % Please edit documentation in R/functions.R
 \name{posWordCloud}
 \alias{posWordCloud}
-\title{Retrieve a vector of all the words in all the comments of the thread passed to getWords.}
+\title{Retrieve a wordcloud of the most used positive words in all the comments of the thread passed to posWordCloud
+Ensure you install tm.lexicon.GeneralInquirer for this by running:
+install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")}
 \usage{
 posWordCloud(words)
 }
@@ -13,7 +15,9 @@ posWordCloud(words)
 A pretty wordcloud
 }
 \description{
-Retrieve a vector of all the words in all the comments of the thread passed to getWords.
+Retrieve a wordcloud of the most used positive words in all the comments of the thread passed to posWordCloud
+Ensure you install tm.lexicon.GeneralInquirer for this by running:
+install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
 }
 \examples{
 getWords(words_vector) 
