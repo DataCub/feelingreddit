@@ -8,13 +8,13 @@ Description: Obtain a sum of the diff between positive and negative words, and
     draw the respective word clouds
 Imports:
     tm,
-    tm.lexicon.GeneralInquirer,
     SnowballC,
     RedditExtractoR,
     stringr,
     wordcloud, 
     RColorBrewer
 Suggests:
-    testthat
+    testthat,
+    tm.lexicon.GeneralInquirer
 LazyData: TRUE
 RoxygenNote: 5.0.1

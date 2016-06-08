@@ -1,5 +1,3 @@
-#' @import ("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
-
 #' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
 #' 
 #' @param url Link to desired Reddit comment thread 
@@ -38,7 +36,9 @@ getComments <- function(url) {
   corpus <- tm_map(corpus, stemDocument, lazy=T)
 }
 
-#' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
+#' Retrieve a wordcloud of the most used positive words in all the comments of the thread passed to posWordCloud
+#' Ensure you install tm.lexicon.GeneralInquirer for this by running:
+#' install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
 #' 
 #' @param words A vector of all the words in the comment thread 
 #' @return A pretty wordcloud 
@@ -57,7 +57,10 @@ posWordCloud <- function(words) {
   wordcloud(pos.comments, min.freq = mean(as.numeric(table(pos.comments))), colors = brewer.pal(9, "Blues")[6:9])
   }
 
-#' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
+#' Retrieve a wordcloud of the most used negative words in all the comments of the thread passed to negWordCloud
+#' Ensure you install tm.lexicon.GeneralInquirer for this by running:
+#' install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
+#' 
 #' 
 #' @param words A vector of all the words in the comment thread 
 #' @return A pretty wordcloud 
@@ -78,6 +81,8 @@ negWordCloud <- function(words) {
 }
 
 #' Retrieve the difference between the sum total of positive and negative words in the thread
+#' Ensure you install tm.lexicon.GeneralInquirer for this by running:
+#' install.packages("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
 #' 
 #' @param comments A corpus of all the comments in the thread
 #' @return the difference between positive and negative comments, where a positive result indicates more positive words and vice-versa
