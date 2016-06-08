@@ -12,9 +12,9 @@ Imports:
     RedditExtractoR,
     stringr,
     wordcloud, 
-    RColorBrewer,
-    tm.lexicon.GeneralInquirer
+    RColorBrewer
 Suggests:
     testthat,
+    tm.lexicon.GeneralInquirer
 LazyData: TRUE
 RoxygenNote: 5.0.1
