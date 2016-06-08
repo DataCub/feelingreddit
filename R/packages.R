@@ -1,0 +1,7 @@
+library(tm)
+library(tm.lexicon.GeneralInquirer)
+library(SnowballC)
+library(RColorBrewer)
+library(wordcloud)
+library(RedditExtractoR)
+library(stringr)
