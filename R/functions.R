@@ -1,3 +1,5 @@
+#' @import ("tm.lexicon.GeneralInquirer", repos="http://datacube.wu.ac.at", type="source")
+
 #' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
 #' 
 #' @param url Link to desired Reddit comment thread 

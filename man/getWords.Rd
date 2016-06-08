@@ -2,7 +2,6 @@
 % Please edit documentation in R/functions.R
 \name{getWords}
 \alias{getWords}
-\title{Retrieve a vector of all the words in all the comments of the thread passed to getWords.}
 \usage{
 getWords(url)
 }
@@ -11,9 +10,6 @@ getWords(url)
 }
 \value{
 A vector of all the words in the comment thread
-}
-\description{
-Retrieve a vector of all the words in all the comments of the thread passed to getWords.
 }
 \examples{
 getWords("https://www.reddit.com/r/funny/comments/4mno3n/pure_chaos/")

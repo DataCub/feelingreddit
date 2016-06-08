@@ -5,7 +5,7 @@ Version: 1.1.0
 Author: Yash Tekriwal, Patrick Tinsley, Jiten Bhatt
 Maintainer: Arthur Wu <arthur@ixperience.co.za>
 Description: Obtain a sum of the diff between positive and negative words, and
-    draw word clouds
+    draw the respective word clouds
 Imports:
     tm,
     tm.lexicon.GeneralInquirer,
