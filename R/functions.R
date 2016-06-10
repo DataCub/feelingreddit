@@ -14,7 +14,7 @@ library(stringr)
 
 getWords <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
-  comments <- content$comments
+  comments <- content$comment
   comments <- tolower(comments)
   comments <- tm::removePunctuation(comments)
   comments <- tm::removeNumbers(comments)
@@ -32,7 +32,7 @@ getWords <- function(url) {
 
 getComments <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
-  comments <- content$comments
+  comments <- content$comment
   corpus <- tm::Corpus(tm::VectorSource(url))
   
   corpus <- tm::tm_map(corpus, tm::content_transformer(tolower), lazy=T) #lower case conversion
