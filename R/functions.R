@@ -14,7 +14,7 @@ library(stringr)
 
 getWords <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
-  comments <- content$comment
+  comments <- content$comments
   comments <- tolower(comments)
   comments <- tm::removePunctuation(comments)
   comments <- tm::removeNumbers(comments)
