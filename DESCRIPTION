@@ -14,7 +14,6 @@ Imports:
     wordcloud, 
     RColorBrewer
 Suggests:
-    testthat,
-    tm.lexicon.GeneralInquirer
+    testthat
 LazyData: TRUE
 RoxygenNote: 5.0.1
