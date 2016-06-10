@@ -18,9 +18,9 @@ getWords <- function(url) {
   comments <- tolower(comments)
   comments <- tm::removePunctuation(comments)
   comments <- tm::removeNumbers(comments)
-  comments <- tm::removeWords(comments, stopwords("english"))
+  comments <- tm::removeWords(comments, tm::stopwords("english"))
   comments <- tm::stripWhitespace(comments)
-  comments <- unlist(str_split(comments, " "))
+  comments <- unlist(stringr::str_split(comments, " "))
   }
 
 #' Retrieve a corpus of all comments of the thread passed to getComments
@@ -33,14 +33,14 @@ getWords <- function(url) {
 getComments <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comments
-  corpus <- tm::Corpus(VectorSource(url))
+  corpus <- tm::Corpus(tm::VectorSource(url))
   
-  corpus <- tm::tm_map(corpus, content_transformer(tolower), lazy=T) #lower case conversion
-  corpus <- tm::tm_map(corpus, removePunctuation, lazy=T)
-  corpus <- tm::tm_map(corpus, removeNumbers, lazy=T) #remove numbers
-  corpus <- tm::tm_map(corpus, removeWords, stopwords("english"), lazy=T) #remove stop words
-  corpus <- tm::tm_map(corpus, stripWhitespace, lazy=T) #strip whitespace
-  corpus <- tm::tm_map(corpus, stemDocument, lazy=T)
+  corpus <- tm::tm_map(corpus, tm::content_transformer(tolower), lazy=T) #lower case conversion
+  corpus <- tm::tm_map(corpus, tm::removePunctuation, lazy=T)
+  corpus <- tm::tm_map(corpus, tm::removeNumbers, lazy=T) #remove numbers
+  corpus <- tm::tm_map(corpus, tm::removeWords, stopwords("english"), lazy=T) #remove stop words
+  corpus <- tm::tm_map(corpus, tm::stripWhitespace, lazy=T) #strip whitespace
+  corpus <- tm::tm_map(corpus, tm::stemDocument, lazy=T)
 }
 
 #' Retrieve a wordcloud of the most used positive words in all the comments of the thread passed to posWordCloud
