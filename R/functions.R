@@ -100,8 +100,8 @@ negWordCloud <- function(words) {
 
 all_feelings <- function(comments) {
   
-  positive <- sapply(corpus, tm.lexicon.GeneralInquirer::tm_term_score, terms_in_General_Inquirer_categories("Positiv"))
-  negative <- sapply(corpus, tm.lexicon.GeneralInquirer::tm_term_score, terms_in_General_Inquirer_categories("Negativ"))
+  positive <- sapply(comments, tm::tm_term_score, terms_in_General_Inquirer_categories("Positiv"))
+  negative <- sapply(comments, tm::tm_term_score, terms_in_General_Inquirer_categories("Negativ"))
   
   margin <- positive - negative # negative score means more negative than positive
   print(sum(margin))
