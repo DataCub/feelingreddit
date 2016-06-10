@@ -15,13 +15,14 @@ library(stringr)
 getWords <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
-  comments <- tolower(comments)
   comments <- tm::removePunctuation(comments)
+  comments <- tolower(comments)
   comments <- tm::removeNumbers(comments)
+  comments <- stringr::str_replace_all(comments,"[^[:graph:]]", " ") 
   comments <- tm::removeWords(comments, tm::stopwords("english"))
   comments <- tm::stripWhitespace(comments)
   comments <- unlist(stringr::str_split(comments, " "))
-  }
+}
 
 #' Retrieve a corpus of all comments of the thread passed to getComments
 #' 
