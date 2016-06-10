@@ -1,9 +1,5 @@
-library(tm)
-library(SnowballC)
-library(RColorBrewer)
-library(wordcloud)
-library(RedditExtractoR)
-library(stringr)
+.onLoad <- function(libname, pkgname) {install.packages("tm.lexicon.GeneralInquirer", 
+                                                        repos="http://datacube.wu.ac.at", type="source")}
 
 #' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
 #' 
