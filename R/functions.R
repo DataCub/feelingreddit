@@ -55,7 +55,7 @@ getComments <- function(url) {
 #' @export
 
 posWordCloud <- function(words) {
-  lex <- devtools::use_data("lexicon.RData")
+  lex <- lexicon
   lex$Entry = gsub("#1", "", lex$Entry)
   lex = lex[!grepl("#", lex$Entry), ]
   pos.lex = tm::tolower(lex$Entry[lex$Positiv != ""])
