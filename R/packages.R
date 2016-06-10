@@ -1,6 +1,5 @@
 .onLoad <- function(libname, pkgname) {install.packages("tm.lexicon.GeneralInquirer", 
                                                         repos="http://datacube.wu.ac.at", type="source")}
-library(tm.lexicon.GeneralInquirer)
 library(tm)
 library(SnowballC)
 library(RColorBrewer)
