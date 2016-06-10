@@ -16,10 +16,10 @@ getWords <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
   comments <- tolower(comments)
-  comments <- removePunctuation(comments)
-  comments <- removeNumbers(comments)
-  comments <- removeWords(comments, stopwords("english"))
-  comments <- stripWhitespace(comments)
+  comments <- tm::removePunctuation(comments)
+  comments <- tm::removeNumbers(comments)
+  comments <- tm::removeWords(comments, stopwords("english"))
+  comments <- tm::stripWhitespace(comments)
   comments <- unlist(str_split(comments, " "))
   }
 
