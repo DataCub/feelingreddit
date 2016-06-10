@@ -58,7 +58,7 @@ posWordCloud <- function(words) {
   
   pos.comments = words[words %in% pos.lex]
 
-  wordcloud::wordcloud(pos.comments, min.freq = mean(as.numeric(table(pos.comments))), colors = brewer.pal(9, "Blues")[6:9])
+  wordcloud::wordcloud(pos.comments, min.freq = mean(as.numeric(table(pos.comments))), colors = RColorBrewer::brewer.pal(9, "Blues")[6:9])
   }
 
 #' Retrieve a wordcloud of the most used negative words in all the comments of the thread passed to negWordCloud
@@ -81,7 +81,7 @@ negWordCloud <- function(words) {
   
   neg.comments = words[words %in% neg.lex]
   
-  wordcloud::wordcloud(neg.comments, scale = c(4, .5), min.freq = mean(as.numeric(table(neg.comments))), colors = brewer.pal(9, "Reds")[6:9])
+  wordcloud::wordcloud(neg.comments, scale = c(4, .5), min.freq = mean(as.numeric(table(neg.comments))), RColorBrewer::colors = brewer.pal(9, "Reds")[6:9])
 }
 
 #' Retrieve the difference between the sum total of positive and negative words in the thread
