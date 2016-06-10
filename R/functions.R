@@ -1,3 +1,10 @@
+library(tm)
+library(SnowballC)
+library(RColorBrewer)
+library(wordcloud)
+library(RedditExtractoR)
+library(stringr)
+
 #' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
 #' 
 #' @param url Link to desired Reddit comment thread 
@@ -6,7 +13,7 @@
 #' @export
 
 getWords <- function(url) {
-  content <- reddit_content(url)
+  content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
   comments <- tolower(comments)
   comments <- removePunctuation(comments)
