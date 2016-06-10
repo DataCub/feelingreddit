@@ -15,11 +15,11 @@ library(stringr)
 getWords <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
+  comments <- tolower(comments)
   comments <- tm::removePunctuation(comments)
   comments <- tm::removeNumbers(comments)
   comments <- tm::removeWords(comments, tm::stopwords("english"))
   comments <- tm::stripWhitespace(comments)
-  comments <- tolower(comments)
   comments <- unlist(stringr::str_split(comments, " "))
   }
 
