@@ -54,8 +54,7 @@ posWordCloud <- function(words) {
   lex <- lexicon
   lex$Entry = gsub("#1", "", lex$Entry)
   lex = lex[!grepl("#", lex$Entry), ]
-  pos.lex = tm::tolower(lex$Entry[lex$Positiv != ""])
-  
+  pos.lex = tolower(lex$Entry[lex$Positiv != ""])
   
   pos.comments = words[words %in% pos.lex]
 
@@ -78,7 +77,7 @@ negWordCloud <- function(words) {
   lex$Entry = gsub("#1", "", lex$Entry)
   lex = lex[!grepl("#", lex$Entry), ]
   
-  neg.lex = tm::tolower(lex$Entry[lex$Negativ != ""])
+  neg.lex = tolower(lex$Entry[lex$Negativ != ""])
   
   neg.comments = words[words %in% neg.lex]
   
