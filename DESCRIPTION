@@ -6,6 +6,7 @@ Author: Yash Tekriwal, Patrick Tinsley, Jiten Bhatt
 Maintainer: Arthur Wu <arthur@ixperience.co.za>
 Description: Obtain a sum of the diff between positive and negative words, and
     draw the respective word clouds
+License: GPLv3
 Imports:
     tm,
     SnowballC,
