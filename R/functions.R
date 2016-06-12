@@ -81,7 +81,7 @@ negWordCloud <- function(words) {
   
   neg.comments = words[words %in% neg.lex]
   
-  wordcloud::wordcloud(neg.comments, scale = c(4, .5), min.freq = mean(as.numeric(table(neg.comments))), RColorBrewer::colors = brewer.pal(9, "Reds")[6:9])
+  wordcloud::wordcloud(neg.comments, scale = c(4, .5), min.freq = mean(as.numeric(table(neg.comments))), colors = brewer.pal(9, "Reds")[6:9])
 }
 
 #' Retrieve the difference between the sum total of positive and negative words in the thread
