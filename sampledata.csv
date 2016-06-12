@@ -1,0 +1,5 @@
+Example,URL,Score
+pos_ex_1,https://www.reddit.com/r/UpliftingNews/comments/4mnkfp/276_dogs_rescued_from_nj_home/,223
+pos_ex_2,https://www.reddit.com/r/UpliftingNews/comments/4m7ei3/ronaldo_donates_his_600k_champions_league_bonus/,56
+neg_ex_1,https://www.reddit.com/r/tifu/comments/4ko4ud/tifu_by_throwing_away_a_million_dollars/,3
+neg_ex_2,https://www.reddit.com/r/pics/comments/4k7l9y/1907_einsteins_doctorate_rejection_letter_by_the/,2

@@ -1,6 +1,12 @@
 .onLoad <- function(libname, pkgname) {install.packages("tm.lexicon.GeneralInquirer", 
                                                         repos="http://datacube.wu.ac.at", type="source")}
-
+library(tm)
+library(tm.lexicon.GeneralInquirer)
+library(SnowballC)
+library(RColorBrewer)
+library(wordcloud)
+library(RedditExtractoR)
+library(stringr)
 #' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
 #' 
 #' @param url Link to desired Reddit comment thread 
@@ -30,7 +36,7 @@ getWords <- function(url) {
 getComments <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
-  corpus <- tm::Corpus(tm::VectorSource(url))
+  corpus <- tm::Corpus(tm::VectorSource(comments))
   
   corpus <- tm::tm_map(corpus, tm::content_transformer(tolower), lazy=T) #lower case conversion
   corpus <- tm::tm_map(corpus, tm::removePunctuation, lazy=T)
