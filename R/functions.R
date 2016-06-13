@@ -11,10 +11,10 @@
 getWords <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
+  comments <- stringr::str_replace_all(comments,"[^[:graph:]]", " ") 
   comments <- tm::removePunctuation(comments)
   comments <- tolower(comments)
   comments <- tm::removeNumbers(comments)
-  comments <- stringr::str_replace_all(comments,"[^[:graph:]]", " ") 
   comments <- tm::removeWords(comments, tm::stopwords("english"))
   comments <- tm::stripWhitespace(comments)
   comments <- unlist(stringr::str_split(comments, " "))
