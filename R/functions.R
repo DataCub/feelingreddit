@@ -30,12 +30,12 @@ getWords <- function(url) {
 getComments <- function(url) {
   content <- RedditExtractoR::reddit_content(url)
   comments <- content$comment
+  comments <- stringr::str_replace_all(comments,"[^[:graph:]]", " ") #does something with graphical chr
   corpus <- tm::Corpus(tm::VectorSource(comments))
   
   corpus <- tm::tm_map(corpus, tm::content_transformer(tolower), lazy=T) #lower case conversion
   corpus <- tm::tm_map(corpus, tm::removePunctuation, lazy=T)
   corpus <- tm::tm_map(corpus, tm::removeNumbers, lazy=T) #remove numbers
-  comments <- stringr::str_replace_all(comments,"[^[:graph:]]", " ") #does something with graphical chr
   corpus <- tm::tm_map(corpus, tm::removeWords, stopwords("english"), lazy=T) #remove stop words
   corpus <- tm::tm_map(corpus, tm::stripWhitespace, lazy=T) #strip whitespace
   corpus <- tm::tm_map(corpus, tm::stemDocument, lazy=T)
