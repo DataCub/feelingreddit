@@ -1,6 +1,6 @@
 .onLoad <- function(libname, pkgname) {install.packages("tm.lexicon.GeneralInquirer", 
                                                         repos="http://datacube.wu.ac.at", type="source")}
-library(tm.lexicon.GeneralInquirer)
+
 #' Retrieve a vector of all the words in all the comments of the thread passed to getWords. 
 #' 
 #' @param url Link to desired Reddit comment thread 
@@ -73,7 +73,7 @@ posWordCloud <- function(words) {
 
 negWordCloud <- function(words) {
   
-  lex <- read.csv("inquirerbasic.csv", stringsAsFactors=FALSE)
+  lex <- lexicon
   lex$Entry = gsub("#1", "", lex$Entry)
   lex = lex[!grepl("#", lex$Entry), ]
   
@@ -81,7 +81,7 @@ negWordCloud <- function(words) {
   
   neg.comments = words[words %in% neg.lex]
   
-  wordcloud::wordcloud(neg.comments, scale = c(4, .5), min.freq = mean(as.numeric(table(neg.comments))), colors = brewer.pal(9, "Reds")[6:9])
+  wordcloud::wordcloud(neg.comments, scale = c(4, .5), min.freq = mean(as.numeric(table(neg.comments))), colors = RColorBrewer::brewer.pal(9, "Reds")[6:9])
 }
 
 #' Retrieve the difference between the sum total of positive and negative words in the thread
@@ -94,6 +94,7 @@ negWordCloud <- function(words) {
 #' @export
 
 all_feelings <- function(comments) {
+  library(tm.lexicon.GeneralInquirer)
   
   positive <- sapply(comments, tm::tm_term_score, terms_in_General_Inquirer_categories("Positiv"))
   negative <- sapply(comments, tm::tm_term_score, terms_in_General_Inquirer_categories("Negativ"))
